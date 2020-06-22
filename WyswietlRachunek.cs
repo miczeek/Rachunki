@@ -13,8 +13,10 @@ using System.Globalization;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Wyświetlanie rachunku
     public partial class WyswietlRachunek : Form
     {
+        //! Konstuktor inicjalizujący komponenty
         public WyswietlRachunek(int id)
         {
             InitializeComponent();

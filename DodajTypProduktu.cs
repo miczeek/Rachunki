@@ -11,13 +11,16 @@ using System.Data.SqlClient;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Dodanie nowego typu produktu
     public partial class DodajTypProduktu : Form
     {
+        //! Konstuktor inicjalizujący komponenty
         public DodajTypProduktu()
         {
             InitializeComponent();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj"
         private void button_dodaj_Click(object sender, EventArgs e)
         {
             string typ = textbox_typ.Text.Trim();

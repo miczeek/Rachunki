@@ -13,9 +13,12 @@ using System.Globalization;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Dodanie nowego rachunku
     public partial class DodajRachunek : Form
     {
         int id_sprzedawcy;
+
+        //! Konstuktor inicjalizujący komponenty
         public DodajRachunek(int id_sprzedawcy)
         {
             InitializeComponent();
@@ -32,6 +35,7 @@ namespace Rachunki
             }
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj"
         private void button_dodaj_Click(object sender, EventArgs e)
         {
             int id = Prompt.Int("Podaj ID produktu");
@@ -54,6 +58,7 @@ namespace Rachunki
             Prompt.Success("Dodano produkt do rachunku");
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Utwórz"
         private void button_utworz_Click(object sender, EventArgs e)
         {
             if (combobox_klient.SelectedItem == null)

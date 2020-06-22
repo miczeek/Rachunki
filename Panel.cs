@@ -10,10 +10,13 @@ using System.Windows.Forms;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Panel sterowania aplikacją
     public partial class Panel : Form
     {
         private DataRow user;
         private int user_id;
+
+        //! Konstuktor inicjalizujący komponenty, ukrywające opcje do których nie mamy dostępu na podstawie roli
         public Panel(DataRow user)
         {
             InitializeComponent();
@@ -45,16 +48,19 @@ namespace Rachunki
             label_logged.Text = "Zalogowany jako: " + user[Program.AKTOR_LOGIN];
         }
 
+        //! Zwrócenie aktualnego tekstu opisującego na jakie konto jesteśmy zalogowani
         public string get_label_logged()
         {
             return label_logged.Text;
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Wyloguj" powodująca zamknięcie aplikacji
         private void button_wyloguj_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Edytuj dane"
         private void button_edytuj_dane_Click(object sender, EventArgs e)
         {
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
@@ -62,6 +68,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Edytuj aktora"
         private void button_edytuj_aktora_Click(object sender, EventArgs e)
         {
 
@@ -79,6 +86,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj sprzedawcę"
         private void button_dodaj_sprzedawce_Click(object sender, EventArgs e)
         {
             string nowa_rola = Program.AKTOR_ROLA_SPRZEDAWCA;
@@ -87,6 +95,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj producenta"
         private void button_dodaj_producenta_Click(object sender, EventArgs e)
         {
             string nowa_rola = Program.AKTOR_ROLA_PRODUCENT;
@@ -95,6 +104,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj klienta"
         private void button_dodaj_klienta_Click(object sender, EventArgs e)
         {
             string nowa_rola = Program.AKTOR_ROLA_UZYTKOWNIK;
@@ -103,6 +113,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj klienta"
         private void button_dodaj_klienta2_Click(object sender, EventArgs e)
         {
             string nowa_rola = Program.AKTOR_ROLA_UZYTKOWNIK;
@@ -111,6 +122,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj produkt"
         private void button_dodaj_produkt_Click(object sender, EventArgs e)
         {
             DodajProdukt popup = new DodajProdukt();
@@ -119,11 +131,15 @@ namespace Rachunki
                 popup.Show();
             }
         }
+
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj typ produktu"
         private void button_dodaj_typ_produktu_Click(object sender, EventArgs e)
         {
             DodajTypProduktu popup = new DodajTypProduktu();
             popup.Show();
         }
+
+        //! Metoda wywoływana po kliknięciu przycisku "Edytuj produkt"
         private void button_edytuj_produkt_Click(object sender, EventArgs e)
         {
             int id = Prompt.Int("Podaj ID produktu");
@@ -137,6 +153,8 @@ namespace Rachunki
             EdytujProdukt popup = new EdytujProdukt(produkt);
             popup.Show();
         }
+
+        //! Metoda wywoływana po kliknięciu przycisku "Edytuj klienta"
         private void button_edytuj_klienta_Click(object sender, EventArgs e)
         {
             int id = Prompt.Int("Podaj ID klienta");
@@ -159,12 +177,14 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Nowy rachunek"
         private void button_nowy_rachunek_Click(object sender, EventArgs e)
         {
             DodajRachunek popup = new DodajRachunek((int)user[0]);
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Odbierz rachunek"
         private void button_odbierz_rachunek_Click(object sender, EventArgs e)
         {
             int id = Prompt.Int("Podaj ID rachunku");
@@ -184,6 +204,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Historia rachunków"
         private void button_historia_rachunkow_Click(object sender, EventArgs e)
         {
             int id = (int)user[Program.AKTOR_ID];
@@ -191,6 +212,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Historia rachunków klienta"
         private void button_historia_rachunkow_klienta_Click(object sender, EventArgs e)
         {
             int id = Prompt.Int("Podaj ID klienta");
@@ -212,6 +234,7 @@ namespace Rachunki
             popup.Show();
         }
 
+        //! Metoda wywoływana po zamknięciu panelu, zamyka również wszystkie inne okna
         private void Panel_FormClosed(object sender, FormClosedEventArgs e)
         {
             System.Windows.Forms.Application.Exit();

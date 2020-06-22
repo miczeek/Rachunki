@@ -5,11 +5,14 @@ using Rachunki;
 
 namespace RachunkiTestyNameSpace
 {
+    //! Klasa dla testów jednostkowych
     [TestClass]
     public class RachunkiTestyClass
     {
         DataRow user = null;
         int user_id;
+
+        //! Metoda wywoływana podczas inicjalizacji, wyłącza wyświetlanie popupów oraz pobiera pierwszego użytkownika z bazy  
         [TestInitialize]
         public void Setup()
         {
@@ -22,6 +25,7 @@ namespace RachunkiTestyNameSpace
             }
         }
 
+        //! Metoda testująca poprawność logowania na konto administratora
         [TestMethod]
         public void LogowanieAdmin()
         {
@@ -31,6 +35,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsNotNull(user);
         }
 
+        //! Metoda testująca czy po wpisaniu błędnego hasła (pustego) nie zostanie zwrócony żaden użytkownik
         [TestMethod]
         public void LogowanieZle()
         {
@@ -40,6 +45,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsNull(user);
         }
 
+        //! Metoda testująca wywołanie okienka logowania
         [TestMethod]
         public void LogowanieFormularz()
         {
@@ -47,6 +53,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsTrue(true);
         }
 
+        //! Metoda testująca poprawność uruchomienia głównego panelu 
         [TestMethod]
         public void PanelFormularz()
         {
@@ -55,6 +62,7 @@ namespace RachunkiTestyNameSpace
             Assert.AreEqual("Zalogowany jako: " + user[Program.AKTOR_LOGIN], label_logged);
         }
 
+        //! Metoda testująca poprawność dodawania nowego aktora
         [TestMethod]
         public void DodajAktoraFormularz()
         {
@@ -64,6 +72,7 @@ namespace RachunkiTestyNameSpace
             Assert.AreEqual(popup.get_wybrana_rola(), rola);
         }
 
+        //! Metoda testująca poprawność uruchomienia głównego panelu 
         [TestMethod]
         public void DodajProduktFormularz()
         {
@@ -71,6 +80,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsTrue(true);
         }
 
+        //! Metoda testująca poprawność uruchomienia formularza odpowiedzialnego za dodawanie nowego rachunku
         [TestMethod]
         public void DodajRachunekFormularz()
         {
@@ -78,6 +88,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsTrue(true);
         }
 
+        //! Metoda testująca poprawność uruchomienia formularza odpowiedzialnego za dodawanie nowego rachunku
         [TestMethod]
         public void DodajTypProduktuFormularz()
         {
@@ -85,6 +96,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsTrue(true);
         }
 
+        //! Metoda testująca poprawność uruchomienia formularza odpowiedzialnego za edytowanie istniejącego aktora
         [TestMethod]
         public void EdytujAktoraFormularz()
         {
@@ -92,6 +104,7 @@ namespace RachunkiTestyNameSpace
             Assert.IsTrue(true);
         }
 
+        //! Metoda testująca poprawność uruchomienia formularza odpowiedzialnego za edytowanie istniejącego produktu
         [TestMethod]
         public void EdytujProduktFormularz()
         {
@@ -104,12 +117,15 @@ namespace RachunkiTestyNameSpace
             Assert.IsTrue(true);
         }
 
+        //! Metoda testująca poprawność uruchomienia historii dla danego użytkownika
         [TestMethod]
         public void WyswietlHistorieFormularz()
         {
             WyswietlHistorie popup = new WyswietlHistorie(user_id);
             Assert.IsTrue(true);
         }
+
+        //! Metoda testująca poprawność uruchomienia okienka z wybranym rachunkiem
         [TestMethod]
         public void WyswietlRachunekFormularz()
         {

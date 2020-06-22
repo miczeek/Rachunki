@@ -11,9 +11,12 @@ using System.Data.SqlClient;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Dodanie nowego produktu
     public partial class DodajProdukt : Form
     {
         public bool error = false;
+
+        //! Konstuktor inicjalizujący komponenty
         public DodajProdukt()
         {
             InitializeComponent();
@@ -54,6 +57,7 @@ namespace Rachunki
 
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj"
         private void button_dodaj_Click(object sender, EventArgs e)
         {
             string nazwa = textbox_nazwa.Text.Trim();

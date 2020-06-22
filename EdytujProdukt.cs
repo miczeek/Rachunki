@@ -11,9 +11,12 @@ using System.Data.SqlClient;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Edytowanie produktu
     public partial class EdytujProdukt : Form
     {
         private DataRow produkt;
+
+        //! Konstuktor inicjalizujący komponenty
         public EdytujProdukt(DataRow produkt)
         {
             InitializeComponent();
@@ -54,6 +57,7 @@ namespace Rachunki
             }
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Dodaj"
         private void button_dodaj_Click(object sender, EventArgs e)
         {
             int id = (int)produkt[0];

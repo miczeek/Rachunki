@@ -5,9 +5,13 @@ using System.Windows.Forms;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Dodanie nowego aktora
     public partial class DodajAktora : Form
     {
+        //! Zmeinna przechowująca rolę edytującej osoby
         private string edytor_rola;
+
+        //! Konstuktor inicjalizujący komponenty
         public DodajAktora(string nowa_rola, string edytor_rola)
         {
             InitializeComponent();
@@ -21,11 +25,13 @@ namespace Rachunki
             }
         }
 
+        //! Metoda zwracająca wybraną rolę w polu typu Combo
         public string get_wybrana_rola()
         {
             return (string)combobox_rola.SelectedItem;
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Zapisz"
         private void button_zapisz_Click(object sender, EventArgs e)
         {
             string login = textbox_login.Text.Trim();

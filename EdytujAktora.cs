@@ -11,10 +11,13 @@ using System.Data.SqlClient;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Edytowanie danych aktora
     public partial class EdytujDane : Form
     {
         private int user_id;
         private string edytor_rola;
+
+        //! Konstuktor inicjalizujący komponenty
         public EdytujDane(int user_id, string edytor_rola)
         {
             InitializeComponent();
@@ -45,6 +48,7 @@ namespace Rachunki
             }
         }
 
+        //! Metoda wywoływana po kliknięciu przycisku "Zapisz"
         private void button_zapisz_Click(object sender, EventArgs e)
         {
             string login = textbox_login.Text.Trim();
@@ -90,10 +94,6 @@ namespace Rachunki
             command.Parameters.AddWithValue("@nr", nr);
             command.ExecuteNonQuery();
             label_wynik.Text = "Dane zapisano.";
-        }
-
-        private void EdytujDane_FormClosed(object sender, FormClosedEventArgs e)
-        {
         }
     }
 }

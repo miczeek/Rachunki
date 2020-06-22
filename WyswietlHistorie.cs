@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Rachunki
 {
+    //! Klasa formularza - Wyświetlanie historii rachunków użytkownika
     public partial class WyswietlHistorie : Form
     {
+        //! Konstuktor inicjalizujący komponenty
         public WyswietlHistorie(int id)
         {
             InitializeComponent();
