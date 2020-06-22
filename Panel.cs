@@ -194,7 +194,7 @@ namespace Rachunki
                 Prompt.Error("Wybrany rachunek nie istnieje.");
                 return;
             }
-            if (rachunek[1] != user[0] && rachunek[2] != user[0] && (string)user[Program.AKTOR_ROLA] != Program.AKTOR_ROLA_ADMIN)
+            if ((int)rachunek[1] != (int)user[0] && (int)rachunek[2] != (int)user[0] && (string)user[Program.AKTOR_ROLA] != Program.AKTOR_ROLA_ADMIN)
             {
                 Prompt.Error("To nie twój rachunek.");
                 return;
