@@ -92,6 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="db_rachunki.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rachunki.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DodajAktora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +198,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="db_rachunki.xsc">
+      <DependentUpon>db_rachunki.xsd</DependentUpon>
+    </None>
+    <None Include="db_rachunki.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_rachunki.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_rachunki.xss">
+      <DependentUpon>db_rachunki.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

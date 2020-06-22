@@ -32,7 +32,7 @@ namespace Rachunki
         public const string AKTOR_ROLA_PRODUCENT = "producent";
 
         //! Dane dostępowe do bazy danych
-        static public string sqlConnect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Lab\\Rachunki\\db_rachunki.mdf;Integrated Security=True;Connect Timeout=30";
+        static public string sqlConnect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\misie\\Desktop\\Rachunki\\db_rachunki.mdf;Integrated Security=True;Connect Timeout=5";
 
         //! Metoda pobierająca użytkownika po loginie i haśle
         static public DataRow getUser(string login, string haslo)
