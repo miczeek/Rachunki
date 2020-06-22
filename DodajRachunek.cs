@@ -21,11 +21,14 @@ namespace Rachunki
             InitializeComponent();
             this.id_sprzedawcy = id_sprzedawcy;
             DataRowCollection klienci = Program.getRows("SELECT * FROM Aktor WHERE rola='" + Program.AKTOR_ROLA_UZYTKOWNIK + "'");
-            for (int i = 0; i < klienci.Count; i++)
+            if (klienci != null)
             {
-                string id = klienci[i][Program.AKTOR_ID].ToString();
-                string nazwa = (string)klienci[i][Program.AKTOR_NAZWA];
-                combobox_klient.Items.Add(new ComboBoxItem(nazwa, id));
+                for (int i = 0; i < klienci.Count; i++)
+                {
+                    string id = klienci[i][Program.AKTOR_ID].ToString();
+                    string nazwa = (string)klienci[i][Program.AKTOR_NAZWA];
+                    combobox_klient.Items.Add(new ComboBoxItem(nazwa, id));
+                }
             }
         }
 

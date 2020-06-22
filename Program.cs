@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
-
+using System.Configuration;
+using Rachunki.Properties;
 
 namespace Rachunki
 {
@@ -34,6 +35,7 @@ namespace Rachunki
     }
     public static class Prompt
     {
+        public static bool Enabled = true;
         public static string ShowDialog(string text, string caption)
         {
             Form prompt = new Form()
@@ -78,15 +80,23 @@ namespace Rachunki
 
         public static void Error(string text)
         {
+            if (!Enabled)
+            {
+                return;
+            }
             MessageBox.Show(text, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         public static void Success(string text)
         {
+            if (!Enabled)
+            {
+                return;
+            }
             MessageBox.Show(text, "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
-    static class Program
+    public static class Program
     {
         public const int AKTOR_ID = 0;
         public const int AKTOR_LOGIN = 1;
@@ -101,7 +111,7 @@ namespace Rachunki
         public const string AKTOR_ROLA_UZYTKOWNIK = "uzytkownik";
         public const string AKTOR_ROLA_PRODUCENT = "producent";
 
-        static public string sqlConnect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\db_rachunki.mdf;Integrated Security=True;Connect Timeout=30";
+        static public string sqlConnect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Lab\\Rachunki\\db_rachunki.mdf;Integrated Security=True;Connect Timeout=30";
 
         static public DataRow getUser(string login, string haslo)
         {

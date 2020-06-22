@@ -26,8 +26,6 @@ namespace Rachunki
                 label_wynik.Text = "Logowanie udane.";
                 this.Hide();
 
-                Console.WriteLine(user[Program.AKTOR_ID]);
-
                 Form main = new Panel(user);
                 main.Show();
             } else

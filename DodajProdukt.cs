@@ -13,6 +13,7 @@ namespace Rachunki
 {
     public partial class DodajProdukt : Form
     {
+        public bool error = false;
         public DodajProdukt()
         {
             InitializeComponent();
@@ -20,7 +21,9 @@ namespace Rachunki
             DataRowCollection typy = Program.getRows("SELECT * FROM ProduktTyp");
             if (typy == null)
             {
+                error = true;
                 Prompt.Error("Brak typów produktów.");
+                return;
             }
             else
             {
@@ -35,7 +38,9 @@ namespace Rachunki
             DataRowCollection producenci = Program.getRows("SELECT id, nazwa FROM Aktor WHERE rola='" + Program.AKTOR_ROLA_PRODUCENT + "'");
             if (producenci == null)
             {
+                error = true;
                 Prompt.Error("Brak producentów.");
+                return;
             } else
             {
                 for (int i = 0; i < producenci.Count; i++)

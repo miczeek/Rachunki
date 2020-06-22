@@ -12,7 +12,7 @@ namespace Rachunki
         {
             InitializeComponent();
             this.edytor_rola = edytor_rola;
-            // textbox_id.Text = "Automatycznie generowane";
+
             combobox_rola.SelectedItem = nowa_rola;
 
             if (edytor_rola != Program.AKTOR_ROLA_ADMIN)
@@ -21,11 +21,16 @@ namespace Rachunki
             }
         }
 
+        public string get_wybrana_rola()
+        {
+            return (string)combobox_rola.SelectedItem;
+        }
+
         private void button_zapisz_Click(object sender, EventArgs e)
         {
             string login = textbox_login.Text.Trim();
             string haslo = textbox_haslo.Text.Trim();
-            string rola = (string)combobox_rola.SelectedItem;
+            string rola = get_wybrana_rola();
             string nip = textbox_nip.Text.Trim();
             string nr = textbox_numer_telefonu.Text.Trim();
             string nazwa = textbox_nazwa.Text.Trim();

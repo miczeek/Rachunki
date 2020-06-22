@@ -45,17 +45,20 @@ namespace Rachunki
             label_logged.Text = "Zalogowany jako: " + user[Program.AKTOR_LOGIN];
         }
 
+        public string get_label_logged()
+        {
+            return label_logged.Text;
+        }
+
         private void button_wyloguj_Click(object sender, EventArgs e)
         {
             this.Close();
-            // Form main = new Logowanie();
-            // main.Show();
         }
 
         private void button_edytuj_dane_Click(object sender, EventArgs e)
         {
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new EdytujDane(user_id, rola);
+            EdytujDane popup = new EdytujDane(user_id, rola);
             popup.Show();
         }
 
@@ -72,7 +75,7 @@ namespace Rachunki
             }
 
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new EdytujDane(id, rola);
+            EdytujDane popup = new EdytujDane(id, rola);
             popup.Show();
         }
 
@@ -80,7 +83,7 @@ namespace Rachunki
         {
             string nowa_rola = Program.AKTOR_ROLA_SPRZEDAWCA;
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new DodajAktora(nowa_rola, rola);
+            DodajAktora popup = new DodajAktora(nowa_rola, rola);
             popup.Show();
         }
 
@@ -88,7 +91,7 @@ namespace Rachunki
         {
             string nowa_rola = Program.AKTOR_ROLA_PRODUCENT;
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new DodajAktora(nowa_rola, rola);
+            DodajAktora popup = new DodajAktora(nowa_rola, rola);
             popup.Show();
         }
 
@@ -96,7 +99,7 @@ namespace Rachunki
         {
             string nowa_rola = Program.AKTOR_ROLA_UZYTKOWNIK;
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new DodajAktora(nowa_rola, rola);
+            DodajAktora popup = new DodajAktora(nowa_rola, rola);
             popup.Show();
         }
 
@@ -104,18 +107,21 @@ namespace Rachunki
         {
             string nowa_rola = Program.AKTOR_ROLA_UZYTKOWNIK;
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new DodajAktora(nowa_rola, rola);
+            DodajAktora popup = new DodajAktora(nowa_rola, rola);
             popup.Show();
         }
 
         private void button_dodaj_produkt_Click(object sender, EventArgs e)
         {
-            Form popup = new DodajProdukt();
-            popup.Show();
+            DodajProdukt popup = new DodajProdukt();
+            if (!popup.error)
+            {
+                popup.Show();
+            }
         }
         private void button_dodaj_typ_produktu_Click(object sender, EventArgs e)
         {
-            Form popup = new DodajTypProduktu();
+            DodajTypProduktu popup = new DodajTypProduktu();
             popup.Show();
         }
         private void button_edytuj_produkt_Click(object sender, EventArgs e)
@@ -128,7 +134,7 @@ namespace Rachunki
                 Prompt.Error("Brak produktu o tym ID");
                 return;
             }
-            Form popup = new EdytujProdukt(produkt);
+            EdytujProdukt popup = new EdytujProdukt(produkt);
             popup.Show();
         }
         private void button_edytuj_klienta_Click(object sender, EventArgs e)
@@ -149,13 +155,13 @@ namespace Rachunki
             }
 
             string rola = ((string)user[Program.AKTOR_ROLA]).Trim();
-            Form popup = new EdytujDane(id, rola);
+            EdytujDane popup = new EdytujDane(id, rola);
             popup.Show();
         }
 
         private void button_nowy_rachunek_Click(object sender, EventArgs e)
         {
-            Form popup = new DodajRachunek((int)user[0]);
+            DodajRachunek popup = new DodajRachunek((int)user[0]);
             popup.Show();
         }
 
@@ -174,14 +180,14 @@ namespace Rachunki
                 return;
             }
 
-            Form popup = new WyswietlRachunek((int)rachunek[0]);
+            WyswietlRachunek popup = new WyswietlRachunek((int)rachunek[0]);
             popup.Show();
         }
 
         private void button_historia_rachunkow_Click(object sender, EventArgs e)
         {
             int id = (int)user[Program.AKTOR_ID];
-            Form popup = new WyswietlHistorie(id);
+            WyswietlHistorie popup = new WyswietlHistorie(id);
             popup.Show();
         }
 
@@ -202,7 +208,7 @@ namespace Rachunki
                 return;
             }
 
-            Form popup = new WyswietlHistorie(id);
+            WyswietlHistorie popup = new WyswietlHistorie(id);
             popup.Show();
         }
 
